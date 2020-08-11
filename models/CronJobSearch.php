@@ -1,12 +1,12 @@
 <?php
 
-namespace vasadibt\cron\models;
+namespace sharkom\cron\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 
 /**
- * CronJobSearch represents the model behind the search form of `\vasadibt\cron\models\CronJob`.
+ * CronJobSearch represents the model behind the search form of `\sharkom\cron\models\CronJob`.
  */
 class CronJobSearch extends CronJob
 {
@@ -17,7 +17,7 @@ class CronJobSearch extends CronJob
     {
         return [
             [['id', 'last_id', 'max_execution_time', 'active'], 'integer'],
-            [['name', 'schedule', 'command'], 'safe'],
+            [['name', 'schedule', 'command', 'logfile'], 'safe'],
         ];
     }
 
@@ -60,6 +60,7 @@ class CronJobSearch extends CronJob
             ['like', 'name', $this->name],
             ['like', 'schedule', $this->schedule],
             ['like', 'command', $this->command],
+            ['like', 'logfile', $this->logfile],
             ['max_execution_time' => $this->max_execution_time],
         ]);
 

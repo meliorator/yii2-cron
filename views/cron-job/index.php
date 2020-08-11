@@ -1,12 +1,12 @@
 <?php
 
-use vasadibt\cron\models\CronJob;
-use vasadibt\cron\Module;
+use sharkom\cron\models\CronJob;
+use sharkom\cron\Module;
 use kartik\grid\GridView;
 use yii\helpers\Html;
 
 /** @var yii\web\View $this */
-/** @var vasadibt\cron\models\CronJobSearch $searchModel */
+/** @var sharkom\cron\models\CronJobSearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
 $this->title = Yii::t('vbt-cron', 'Cron Jobs');
@@ -33,6 +33,10 @@ $this->params['breadcrumbs'][] = $this->title;
                 [
                     'class' => '\kartik\grid\DataColumn',
                     'attribute' => 'command',
+                ],
+                [
+                    'class' => '\kartik\grid\DataColumn',
+                    'attribute' => 'logfile',
                 ],
                 [
                     'class' => '\kartik\grid\DataColumn',

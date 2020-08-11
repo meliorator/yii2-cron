@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /**@var $this yii\web\View */
-/**@var $model vasadibt\cron\models\CronJob */
+/**@var $model sharkom\cron\models\CronJob */
 /**@var $form yii\widgets\ActiveForm */
 ?>
 
@@ -19,6 +19,8 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'schedule')->textInput(['maxlength' => true, 'placeholder' => '* * * * *']) ?>
 
     <?= $form->field($model, 'command')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'logfile')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'max_execution_time')->textInput() ?>
 

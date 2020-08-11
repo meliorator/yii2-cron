@@ -2,6 +2,12 @@ Yii2 Cron job Manager
 =====================
 Create Cron jobs from browser, and look that run logs
 
+Forked from vasadibt/yii2-cron with some modifications:
+
+1. Now it can run every kind of script, not only Yii2 console commands
+2. Added capability to have a log file in addition to DB logs
+3. Removed the runquick capabilities
+
 Installation
 ------------
 
@@ -10,13 +16,13 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```
-php composer.phar require --prefer-dist vasadibt/yii2-cron "*"
+php composer.phar require --prefer-dist sharkom/yii2-cron "*"
 ```
 
 or add
 
 ```
-"vasadibt/yii2-cron": "*"
+"sharkom/yii2-cron": "*"
 ```
 
 to the require section of your `composer.json` file.
@@ -27,7 +33,7 @@ to the require section of your `composer.json` file.
 Run the following command in Terminal for database migration:
 
 ```
-yii migrate/up --migrationPath=@vasadibt/cron/migrations
+yii migrate/up --migrationPath=@sharkom/cron/migrations
 ```
 
 Or use the [namespaced migration](http://www.yiiframework.com/doc-2.0/guide-db-migrations.html#namespaced-migrations) (requires at least Yii 2.0.10):
@@ -38,7 +44,7 @@ Or use the [namespaced migration](http://www.yiiframework.com/doc-2.0/guide-db-m
     'migrate' => [
         'class' => 'yii\console\controllers\MigrateController',
         'migrationPath' => [
-            '@vasadibt/cron/migrations',
+            '@sharkom/cron/migrations',
         ],
     ],
 ],
@@ -58,7 +64,7 @@ Simple example:
 ```php
 'modules' => [
     'cron' => [
-        'class' => 'vasadibt\cron\Module',
+        'class' => 'sharkom\cron\Module',
     ],
 ],
 ```
@@ -72,7 +78,7 @@ Simple example:
 ```php
 'modules' => [
     'cron' => [
-        'class' => 'vasadibt\cron\Module',
+        'class' => 'sharkom\cron\Module',
     ],
 ],
 ```

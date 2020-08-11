@@ -6,10 +6,10 @@
  * Time: 18:12
  */
 
-namespace vasadibt\cron\commands;
+namespace sharkom\cron\commands;
 
 use Cron\CronExpression;
-use vasadibt\cron\models\CronJob;
+use sharkom\cron\models\CronJob;
 use yii\console\Controller;
 use yii\console\widgets\Table;
 use yii\helpers\ArrayHelper;
@@ -37,13 +37,14 @@ class CronController extends Controller
 
         echo PHP_EOL;
         echo Table::widget([
-            'headers' => ['ID', 'Name', 'Schedule', 'Command', 'Max execution time', 'Active'],
+            'headers' => ['ID', 'Name', 'Schedule', 'Command', 'Log File', 'Max execution time', 'Active'],
             'rows' => ArrayHelper::getColumn($jobs, function (CronJob $job) {
                 return [
                     $job->id,
                     $job->name,
                     $job->schedule,
                     $job->command,
+                    $job->logfile,
                     $job->max_execution_time,
                     $job->active ? true : false,
                 ];
@@ -58,7 +59,7 @@ class CronController extends Controller
     {
         foreach (CronJob::findRunnable() as $job) {
             if (CronExpression::factory($job->schedule)->isDue()) {
-                $this->run('/cron/job/run-quick', [$job->id]);
+                $this->run('/cron/job/run', [$job->id]);
             }
         }
     }

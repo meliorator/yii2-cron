@@ -3,11 +3,11 @@
  * Created by Model Generator.
  */
 
-namespace vasadibt\cron\models;
+namespace sharkom\cron\models;
 
 use common\helpers\FileHelper;
 use Symfony\Component\Process\Process;
-use vasadibt\cron\Module;
+use sharkom\cron\Module;
 use Yii;
 use yii\db\ActiveQuery;
 use yii\db\ActiveQueryInterface;
@@ -46,7 +46,7 @@ class CronJob extends ActiveRecord
         return [
             [['last_id', 'max_execution_time'], 'integer'],
             [['active'], 'boolean'],
-            [['name', 'schedule', 'command'], 'string', 'max' => 255],
+            [['name', 'schedule', 'command', 'logfile'], 'string', 'max' => 255],
         ];
     }
 
@@ -61,6 +61,7 @@ class CronJob extends ActiveRecord
             'name' => Yii::t('vbt-cron', 'Name'),
             'schedule' => Yii::t('vbt-cron', 'Schedule'),
             'command' => Yii::t('vbt-cron', 'Command'),
+            'logfile' => Yii::t('vbt-cron', 'Log File'),
             'max_execution_time' => Yii::t('vbt-cron', 'Max execution time'),
             'active' => Yii::t('vbt-cron', 'Active'),
         ];
@@ -141,15 +142,6 @@ class CronJob extends ActiveRecord
     }
 
     /**
-     * Run cron job without waiting the result
-     */
-    public function runQuick()
-    {
-        $process = $this->buildProcess('cron/job/run ' . $this->id);
-        $process->start();
-    }
-
-    /**
      * @param string $command
      * @param int $timeout
      * @return Process
@@ -157,6 +149,7 @@ class CronJob extends ActiveRecord
     public function buildProcess($command, $timeout = 60)
     {
         $command = $this->buildCommand($command);
+        //print_r($command);
         $process = new Process($command, null, null, null, $timeout);
         return $process;
     }
@@ -170,10 +163,6 @@ class CronJob extends ActiveRecord
     {
         $module = Module::getInstance();
 
-        return strtr('{php} {yii} {command}', [
-            '{php}' => $module->phpBinary,
-            '{yii}' => $module->yiiFile,
-            '{command}' => $command,
-        ]);
+        return explode(" ", $command);
     }
 }

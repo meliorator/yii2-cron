@@ -18,6 +18,7 @@ class m190426_144151_create_cron_job_table extends Migration
             'name' => $this->string()->notNull(),
             'schedule' => $this->string()->notNull(),
             'command' => $this->string()->notNull(),
+            'logfile' => $this->string()->notNull(),
             'active' => $this->boolean()->notNull()->defaultValue(true),
         ]);
     }

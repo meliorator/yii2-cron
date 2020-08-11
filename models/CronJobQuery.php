@@ -3,7 +3,7 @@
  * Created by Model Generator.
  */
 
-namespace vasadibt\cron\models;
+namespace sharkom\cron\models;
 
 use yii\db\ActiveQuery;
 

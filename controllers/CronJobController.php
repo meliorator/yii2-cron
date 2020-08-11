@@ -1,10 +1,10 @@
 <?php
 
-namespace vasadibt\cron\controllers;
+namespace sharkom\cron\controllers;
 
 use Yii;
-use vasadibt\cron\models\CronJob;
-use vasadibt\cron\models\CronJobSearch;
+use sharkom\cron\models\CronJob;
+use sharkom\cron\models\CronJobSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
