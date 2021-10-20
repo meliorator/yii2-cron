@@ -27,9 +27,10 @@ class m190426_144159_create_cron_job_run_table extends Migration
             'output' => $this->text(),
             'error_output' => $this->text(),
         ]);
-
+        
         $this->createIndex('idx-cron_job_run-job_id', 'cron_job_run', 'job_id');
         $this->addForeignKey('fk-cron_job_run-job_id', 'cron_job_run', 'job_id', 'cron_job', 'id', 'CASCADE');
+        $this->createIndex('idx-cron_job_run-in_progress', 'cron_job_run', 'in_progress');
     }
 
     /**
