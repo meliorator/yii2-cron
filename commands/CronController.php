@@ -13,6 +13,7 @@ use sharkom\cron\models\CronJob;
 use yii\console\Controller;
 use yii\console\widgets\Table;
 use yii\helpers\ArrayHelper;
+use Yii;
 
 /**
  * Class JobController
@@ -57,10 +58,17 @@ class CronController extends Controller
      */
     public function actionRun()
     {
+        $this->unlock();
+
         foreach (CronJob::findRunnable() as $job) {
             if (CronExpression::factory($job->schedule)->isDue()) {
                 $this->run('/cron/job/run', [$job->id]);
             }
         }
+    }
+
+    private function unlock() {
+        $conn=Yii::$app->db;
+        $result=$conn->createCommand("delete from cron_job_run where in_progress=1 and start<(NOW() - INTERVAL 8 HOUR)")->execute();
     }
 }
