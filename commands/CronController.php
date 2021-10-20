@@ -69,6 +69,11 @@ class CronController extends Controller
 
     private function unlock() {
         $conn=Yii::$app->db;
-        $result=$conn->createCommand("delete from cron_job_run where in_progress=1 and start<(NOW() - INTERVAL 8 HOUR)")->execute();
+        $result=$conn->createCommand("select * from cron_job_run where in_progress=1 and start<(NOW() - INTERVAL 8 HOUR)")->queryAll();
+
+        foreach ($result as $job) {
+            $result=$conn->createCommand("update cron_job set last_id=null where id=$job[job_id]")->execute();
+            $result=$conn->createCommand("delete from cron_job_run where id=$job[id]")->execute();
+        }
     }
 }
