@@ -77,7 +77,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     'class' => '\kartik\grid\DataColumn',
                     'attribute' => 'output',
                     'value' => function (CronJobRun $model) {
-                        return Html::tag('pre', Console::ansiToHtml($model->output), ['style' => 'padding:15px']);
+                        return Html::tag('pre', Console::ansiToHtml($model->output), ['style' => 'padding:15px; background-color:black; color:white;']);
                     },
                     'format' => 'raw',
                     'hAlign' => 'left',
