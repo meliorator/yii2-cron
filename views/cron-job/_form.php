@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use sharkom\widgets\CronJob;
 
 /**@var $this yii\web\View */
 /**@var $model sharkom\cron\models\CronJob */
@@ -16,7 +17,10 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'schedule')->textInput(['maxlength' => true, 'placeholder' => '* * * * *']) ?>
+    <?=CronJob::widget([
+        'model' => $model,
+        'attribute'=>'schedule'
+    ]); ?>
 
     <?= $form->field($model, 'command')->textInput(['maxlength' => true]) ?>
 
