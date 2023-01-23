@@ -150,7 +150,7 @@ class CronJob extends ActiveRecord
     {
         $command = $this->buildCommand($command);
         //print_r($command);
-        $process = new Process($command, null, null, null, $timeout);
+        $process = Process::fromShellCommandline($command, null, null, null, $timeout);
         return $process;
     }
 
