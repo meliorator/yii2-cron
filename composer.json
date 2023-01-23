@@ -20,8 +20,7 @@
     "yiisoft/yii2": "~2.0.0",
     "symfony/process": "^5.0",
     "dragonmantank/cron-expression": "^1.2",
-    "kartik-v/yii2-grid": "@dev",
-    "sharkom/yii2-cronjob-widget": "dev-master"
+    "kartik-v/yii2-grid": "@dev"
   },
   "autoload": {
     "psr-4": {
