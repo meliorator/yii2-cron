@@ -6,7 +6,7 @@
  * Time: 19:01
  */
 
-namespace sharkom\cron;
+namespace meliorator\cron;
 
 use Yii;
 use yii\console\Application as ConsoleApplication;
@@ -14,7 +14,7 @@ use yii\helpers\ArrayHelper;
 
 /**
  * Class Module
- * @package sharkom\cron
+ * @package meliorator\cron
  */
 class Module extends \yii\base\Module
 {
@@ -43,7 +43,7 @@ class Module extends \yii\base\Module
         parent::init();
 
         if (Yii::$app instanceof ConsoleApplication) {
-            $this->controllerNamespace = 'sharkom\cron\commands';
+            $this->controllerNamespace = 'meliorator\cron\commands';
         }
 
         $this->registerTranslations();
@@ -60,7 +60,7 @@ class Module extends \yii\base\Module
         \Yii::$app->i18n->translations['vbt-cron'] = [
             'class' => '\yii\i18n\PhpMessageSource',
             'sourceLanguage' => 'en-US',
-            'basePath' => '@sharkom/cron/messages',
+            'basePath' => '@meliorator/cron/messages',
         ];
     }
 

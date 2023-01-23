@@ -1,15 +1,15 @@
 <?php
 
 use kartik\grid\GridView;
-use sharkom\cron\models\CronJob;
-use sharkom\cron\models\CronJobRun;
-use sharkom\cron\Module;
+use meliorator\cron\models\CronJob;
+use meliorator\cron\models\CronJobRun;
+use meliorator\cron\Module;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Console;
 use yii\helpers\Html;
 
 /** @var yii\web\View $this */
-/** @var sharkom\cron\models\CronJobRunSearch $searchModel */
+/** @var meliorator\cron\models\CronJobRunSearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
 $this->title = Yii::t('vbt-cron', 'Cron Job Runs');

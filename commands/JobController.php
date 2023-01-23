@@ -1,15 +1,15 @@
 <?php
 
 
-namespace sharkom\cron\commands;
+namespace meliorator\cron\commands;
 
-use sharkom\cron\models\CronJob;
+use meliorator\cron\models\CronJob;
 use yii\console\Controller;
 use yii\helpers\Console;
 
 /**
  * Class JobController
- * @package sharkom\cron\commands
+ * @package meliorator\cron\commands
  */
 class JobController extends Controller
 {

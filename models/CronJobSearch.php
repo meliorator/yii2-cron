@@ -1,12 +1,12 @@
 <?php
 
-namespace sharkom\cron\models;
+namespace meliorator\cron\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 
 /**
- * CronJobSearch represents the model behind the search form of `\sharkom\cron\models\CronJob`.
+ * CronJobSearch represents the model behind the search form of `\meliorator\cron\models\CronJob`.
  */
 class CronJobSearch extends CronJob
 {

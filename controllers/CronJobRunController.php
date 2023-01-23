@@ -1,9 +1,9 @@
 <?php
 
-namespace sharkom\cron\controllers;
+namespace meliorator\cron\controllers;
 
 use Yii;
-use sharkom\cron\models\CronJobRunSearch;
+use meliorator\cron\models\CronJobRunSearch;
 use yii\web\Controller;
 
 /**

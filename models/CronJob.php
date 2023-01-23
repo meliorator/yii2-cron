@@ -3,11 +3,11 @@
  * Created by Model Generator.
  */
 
-namespace sharkom\cron\models;
+namespace meliorator\cron\models;
 
 use common\helpers\FileHelper;
 use Symfony\Component\Process\Process;
-use sharkom\cron\Module;
+use meliorator\cron\Module;
 use Yii;
 use yii\db\ActiveQuery;
 use yii\db\ActiveQueryInterface;
@@ -163,6 +163,10 @@ class CronJob extends ActiveRecord
     {
         $module = Module::getInstance();
 
-        return explode(" ", $command);
+        return strtr('{php} {yii} {command}', [
+            '{php}' => $module->phpBinary,
+            '{yii}' => $module->yiiFile,
+            '{command}' => $command,
+        ]);
     }
 }

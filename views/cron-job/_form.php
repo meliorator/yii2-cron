@@ -2,10 +2,10 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-use sharkom\widgets\CronJob;
+use meliorator\widgets\CronJob;
 
 /**@var $this yii\web\View */
-/**@var $model sharkom\cron\models\CronJob */
+/**@var $model meliorator\cron\models\CronJob */
 /**@var $form yii\widgets\ActiveForm */
 ?>
 

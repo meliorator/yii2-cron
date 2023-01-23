@@ -6,10 +6,10 @@
  * Time: 18:12
  */
 
-namespace sharkom\cron\commands;
+namespace meliorator\cron\commands;
 
 use Cron\CronExpression;
-use sharkom\cron\models\CronJob;
+use meliorator\cron\models\CronJob;
 use yii\console\Controller;
 use yii\console\widgets\Table;
 use yii\helpers\ArrayHelper;

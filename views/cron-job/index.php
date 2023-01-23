@@ -1,12 +1,12 @@
 <?php
 
-use sharkom\cron\models\CronJob;
-use sharkom\cron\Module;
+use meliorator\cron\models\CronJob;
+use meliorator\cron\Module;
 use kartik\grid\GridView;
 use yii\helpers\Html;
 
 /** @var yii\web\View $this */
-/** @var sharkom\cron\models\CronJobSearch $searchModel */
+/** @var meliorator\cron\models\CronJobSearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
 $this->title = Yii::t('vbt-cron', 'Cron Jobs');
