@@ -24,9 +24,9 @@ class JobController extends Controller
 
         $module = Module::getInstance();
 
-        $logFile = strtr('{yii}/{file}', [
-            '{yii}' => $module->yiiFile,
-            '{file}' => $job->logfile
+        $logFile = strtr('{base}/{offset}', [
+            '{base}' => dirname($module->yiiFile),
+            '{offset}' => $job->logfile
         ]);
 
         Console::output('Process is finished, exit code: #' . $run->exit_code);
