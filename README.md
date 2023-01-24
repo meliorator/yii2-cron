@@ -2,10 +2,8 @@ Yii2 Cron job Manager
 =====================
 Create Cron jobs from browser, and look that run logs
 
-Forked from sharkom/yii2-cron with some modifications:
+Forked from sharkom/yii2-cron with some modifications
 
-1. Some fixes migration
-2. Return build command as vasadibt/yii2-cron
 
 Installation
 ------------
