@@ -23,6 +23,7 @@ use yii\db\Expression;
  * @property string $schedule
  * @property string $command
  * @property int $max_execution_time
+ * @property string $logFile
  * @property boolean $active
  *
  * @property CronJobRun[] $cronJobRuns
